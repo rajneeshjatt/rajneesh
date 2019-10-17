@@ -21,7 +21,11 @@ public class Maventest {
 		// webDriver driver = new ChromeDriver();
 		System.out.println("launching chrome browser");
 		System.setProperty("webdriver.chrome.driver", driverPath);
-		driver = new ChromeDriver();
+		System.out.println("init");
+		ChromeOptions chromeOptions = new ChromeOptions();
+		chromeOptions.addArguments("--headless");
+		WebDriver driver = new ChromeDriver(chromeOptions);
+		//driver = new ChromeDriver();
 		driver.get(baseUrl);
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
